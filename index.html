@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hongyuan Xu | Robotics Engineer</title>
+  <meta
+    name="description"
+    content="Hongyuan Xu is a robotics engineer focused on robot vision, machine learning, reinforcement learning, and autonomous systems."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#home">Hongyuan Xu</a>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Robotics Engineer</p>
+          <h1 id="hero-title"></h1>
+          <p class="hero-summary" id="hero-summary"></p>
+          <div class="hero-callout">
+            <p class="meta-label">Now building</p>
+            <h3 id="hero-callout-title"></h3>
+            <p id="hero-callout-text"></p>
+          </div>
+          <div class="hero-tags" id="hero-tags"></div>
+          <div class="hero-actions">
+            <a class="button button-primary" href="Hongyuan_s_resume.pdf" target="_blank" rel="noreferrer">View resume</a>
+            <a class="button button-secondary" id="github-link" href="#" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+          <div class="hero-game">
+            <div class="hero-game-head">
+              <p class="meta-label">Interactive Lab</p>
+              <p class="hero-game-copy">
+                Guide the rover to the beacon. A small interactive nod to my work in robotics, localization, search, and control.
+              </p>
+            </div>
+            <div class="hero-game-layout">
+              <div class="game-main">
+                <div class="game-panel">
+                  <div class="game-board" id="game-board" aria-label="Target search game board"></div>
+                  <div class="game-controls">
+                    <button class="control-button" type="button" data-move="up">Up</button>
+                    <div class="game-controls-row">
+                      <button class="control-button" type="button" data-move="left">Left</button>
+                      <button class="control-button" type="button" data-move="down">Down</button>
+                      <button class="control-button" type="button" data-move="right">Right</button>
+                    </div>
+                    <button class="button button-secondary game-reset" type="button" id="game-reset">New map</button>
+                  </div>
+                  <p class="game-note">Use the buttons or arrow keys. Reach the beacon to complete the mission.</p>
+                </div>
+              </div>
+              <div class="game-sidebar">
+                <div class="game-difficulty">
+                  <span class="meta-label">Sensor range</span>
+                  <div class="difficulty-row">
+                    <button class="difficulty-button active" type="button" data-range="4">Wide</button>
+                    <button class="difficulty-button" type="button" data-range="2">Mid</button>
+                    <button class="difficulty-button" type="button" data-range="1">Tight</button>
+                  </div>
+                </div>
+                <div class="lab-status">
+                  <article class="status-card">
+                    <span class="meta-label">Sensor</span>
+                    <strong id="game-sensor"></strong>
+                    <p id="game-hint"></p>
+                  </article>
+                  <article class="status-card">
+                    <span class="meta-label">Mission Stats</span>
+                    <strong id="game-stats"></strong>
+                    <p id="game-score"></p>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-panel">
+          <div class="profile-card">
+            <img id="avatar" alt="Hongyuan Xu portrait">
+            <div class="profile-meta">
+              <strong id="profile-name"></strong>
+              <span id="profile-role"></span>
+            </div>
+          </div>
+          <p class="panel-label">Current focus</p>
+          <div class="focus-list" id="focus-list"></div>
+          <div class="hero-facts" id="hero-facts"></div>
+        </aside>
+      </section>
+
+      <section class="section intro-section" id="about">
+        <div class="section-heading">
+          <p class="eyebrow">About</p>
+          <h2>Engineering systems that bridge simulation, learning, and deployment.</h2>
+        </div>
+        <div class="intro-grid">
+          <div class="intro-copy">
+            <p id="about-text"></p>
+          </div>
+          <div class="quote-card">
+            <p id="signature-line"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Capabilities</p>
+          <h2>Core areas of work</h2>
+        </div>
+        <div class="capability-grid" id="capability-grid"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Technical Competencies</p>
+          <h2>Tools and systems I work with</h2>
+        </div>
+        <div class="skills-grid" id="skills-grid"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Experience</p>
+          <h2 id="experience">Research and engineering experience</h2>
+        </div>
+        <div class="experience-list" id="experience-list"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Selected Projects</p>
+          <h2 id="projects">Projects in robotics, autonomy, and vision</h2>
+        </div>
+        <div class="project-grid" id="project-grid"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Education</p>
+          <h2>Academic background</h2>
+        </div>
+        <div class="education-list" id="education-list"></div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contact">
+      <div class="footer-copy">
+        <p class="eyebrow">Contact</p>
+        <h2>Open to robotics, vision, and machine learning opportunities.</h2>
+      </div>
+      <div class="contact-grid" id="contact-grid"></div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
