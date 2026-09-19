@@ -8,12 +8,6 @@
     name="description"
     content="Hongyuan Xu is a robotics engineer focused on robot vision, reinforcement learning, and autonomous systems."
   >
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap"
-    rel="stylesheet"
-  >
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -30,12 +24,6 @@
     </header>
 
     <main id="home" class="profile-page">
-      <section class="page-intro">
-        <p class="eyebrow">Profile</p>
-        <h1 id="profile-name"></h1>
-        <div class="title-list" id="profile-titles"></div>
-      </section>
-
       <div class="profile-layout">
         <aside class="profile-sidebar" id="contact">
           <div class="portrait-card">
@@ -59,6 +47,12 @@
         </aside>
 
         <div class="profile-main">
+          <section class="page-intro" aria-labelledby="profile-name">
+            <p class="eyebrow">Profile</p>
+            <h1 id="profile-name"></h1>
+            <div class="title-list" id="profile-titles"></div>
+          </section>
+
           <section class="content-section" id="about">
             <h2>Biography</h2>
             <div class="prose" id="about-text"></div>
