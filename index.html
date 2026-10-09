@@ -1,107 +1,77 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hongyuan Xu | Robotics Engineer</title>
-  <meta
-    name="description"
-    content="Hongyuan Xu is a robotics engineer focused on robot vision, reinforcement learning, and autonomous systems."
-  >
+  <meta name="description" content="Hongyuan Xu is an M.S. candidate in Computer Science at Northwestern University, graduating in December 2026, focused on robot manipulation, locomotion, and sim-to-real reinforcement learning.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="page-shell">
-    <header class="topbar">
-      <a class="brand" href="#home">Hongyuan Xu</a>
-      <nav class="nav" aria-label="Primary">
-        <a href="#about">Biography</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <a class="nav-cta" href="Hongyuan_s_resume.pdf" target="_blank" rel="noreferrer">Resume</a>
-    </header>
+  <a class="skip-link" href="#home">Skip to content</a>
+  <header class="topbar">
+    <nav class="nav" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#projects">Research</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+      <a href="Hongyuan_s_resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+    </nav>
+  </header>
 
-    <main id="home" class="profile-page">
-      <div class="profile-layout">
-        <aside class="profile-sidebar" id="contact">
-          <div class="portrait-card">
-            <img id="avatar" alt="Hongyuan Xu portrait">
-          </div>
-
-          <section class="sidebar-card">
-            <h2>Contact</h2>
-            <div class="sidebar-list" id="contact-list"></div>
-          </section>
-
-          <section class="sidebar-card">
-            <h2>Links</h2>
-            <div class="sidebar-list" id="links-list"></div>
-          </section>
-
-          <section class="sidebar-card">
-            <h2>Education</h2>
-            <div class="education-list" id="education-list"></div>
-          </section>
-        </aside>
-
-        <div class="profile-main">
-          <section class="page-intro" aria-labelledby="profile-name">
-            <p class="eyebrow">Profile</p>
-            <h1 id="profile-name"></h1>
-            <div class="title-list" id="profile-titles"></div>
-          </section>
-
-          <section class="content-section" id="about">
-            <h2>Biography</h2>
-            <div class="prose" id="about-text"></div>
-          </section>
-
-          <section class="content-section">
-            <h2>Research Interests</h2>
-            <div class="interest-list" id="focus-list"></div>
-          </section>
-
-          <section class="content-section feature-section" id="projects">
-            <h2>Featured Project</h2>
-            <article class="feature-project">
-              <div class="feature-copy">
-                <p class="project-meta" id="featured-project-meta"></p>
-                <h3 id="featured-project-title"></h3>
-                <p id="featured-project-text"></p>
-                <ul class="bullet-list" id="featured-project-highlights"></ul>
-                <div class="project-actions" id="featured-project-actions"></div>
-                <p class="project-note" id="featured-project-note"></p>
-              </div>
-              <div class="feature-media">
-                <div class="video-shell">
-                  <iframe
-                    id="featured-project-video"
-                    title="Featured project video"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                  ></iframe>
-                </div>
-              </div>
-            </article>
-          </section>
-
-          <section class="content-section">
-            <h2>Selected Projects</h2>
-            <div class="project-list" id="project-list"></div>
-          </section>
-
-          <section class="content-section" id="experience">
-            <h2>Experience</h2>
-            <div class="experience-list" id="experience-list"></div>
-          </section>
+  <main id="home" class="page-shell">
+    <section class="profile-hero" id="about" aria-labelledby="profile-name">
+      <div class="portrait-column">
+        <div class="portrait-frame">
+          <img id="avatar" src="assets/portrait-outdoors.jpg" alt="Hongyuan Xu outdoors in a white shirt" width="400" height="500" fetchpriority="high">
         </div>
+        <div class="portrait-choices" id="portrait-choices" role="group" aria-label="Choose a portrait"></div>
       </div>
-    </main>
-  </div>
+      <div class="profile-copy">
+        <p class="greeting">Hello, I'm</p>
+        <h1 id="profile-name"></h1>
+        <div class="title-list" id="profile-titles"></div>
+        <div class="prose" id="about-text"></div>
+        <nav class="profile-links" id="profile-links" aria-label="Profile links"></nav>
+      </div>
+    </section>
 
+    <section class="interests-section" aria-labelledby="interests-heading">
+      <h2 id="interests-heading">Research Interests</h2>
+      <div class="interest-list" id="focus-list"></div>
+    </section>
+
+    <section class="research-section section" id="projects" aria-labelledby="research-heading">
+      <h2 class="section-heading" id="research-heading">Research &amp; Projects</h2>
+      <div class="project-list" id="project-list"></div>
+    </section>
+
+    <section class="section" id="experience" aria-labelledby="experience-heading">
+      <h2 class="section-heading" id="experience-heading">Experience</h2>
+      <div class="experience-list" id="experience-list"></div>
+    </section>
+
+    <section class="section" aria-labelledby="skills-heading">
+      <h2 class="section-heading" id="skills-heading">Technical Skills</h2>
+      <div class="skills-list" id="skills-list"></div>
+    </section>
+
+    <section class="section" aria-labelledby="education-heading">
+      <h2 class="section-heading" id="education-heading">Education</h2>
+      <div class="education-list" id="education-list"></div>
+    </section>
+
+    <footer class="contact-section" id="contact">
+      <section aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact</h2>
+        <div class="sidebar-list" id="contact-list"></div>
+      </section>
+      <section aria-labelledby="links-heading">
+        <h2 id="links-heading">Links</h2>
+        <div class="sidebar-list" id="links-list"></div>
+      </section>
+    </footer>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>
