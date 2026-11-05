@@ -83,7 +83,7 @@ const portfolioData = {
         "Humanoid get-up: 99.4% success on held-out lying poses, followed by a handover to a standing policy.",
         "Arm motion planning with cuRobo, including comparisons against joint interpolation around a table and wall."
       ],
-      "note": "Current results and demos are from simulation (v0). Policy deployment on the physical robots is a next step.",
+      "note": "Policy results and planning demos are from simulation (v0); the teleoperation demo runs on the physical arm. Policy deployment on the physical robots is a next step.",
       "image": {
         "src": "assets/arthrobot/humanoid.jpg",
         "alt": "ArthroBot wheel-legged humanoid with modular joints, carbon-fiber links, and two grippers",
@@ -92,6 +92,14 @@ const portfolioData = {
         "height": 1370
       },
       "videos": [
+        {
+          "src": "assets/arthrobot/arm-teleop.mp4",
+          "poster": "assets/arthrobot/arm-teleop.jpg",
+          "title": "VR teleoperation",
+          "caption": "Teleoperating the physical 6-DOF arm with a VR headset and handheld controllers.",
+          "width": 960,
+          "height": 540
+        },
         {
           "src": "assets/arthrobot/arm-reaching.mp4",
           "poster": "assets/arthrobot/arm-reaching.jpg",
@@ -409,7 +417,7 @@ function renderResearchProject(project) {
     video.poster = demo.poster;
     video.width = demo.width;
     video.height = demo.height;
-    video.setAttribute("aria-label", `${demo.title} simulation demo`);
+    video.setAttribute("aria-label", `${demo.title} demo`);
     video.setAttribute("aria-describedby", `${project.id}-demo-${index}`);
     const source = createElement("source");
     source.src = demo.src;

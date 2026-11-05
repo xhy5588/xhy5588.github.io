@@ -181,7 +181,7 @@ h3 { margin-bottom: 12px; font-size: 1.25rem; line-height: 1.45; }
 .research-copy { min-width: 0; }
 .research-copy h3 { font-size: 1.5rem; }
 .research-note { margin: 16px 0 0; color: var(--muted); font: 0.875rem/1.6 var(--sans); }
-.research-demos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: 30px; }
+.research-demos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 30px; }
 .research-demo { margin: 0; min-width: 0; }
 .research-demo video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; background: #19151e; border-radius: 4px; }
 .research-demo figcaption { margin-top: 12px; color: var(--muted); font: 0.875rem/1.6 var(--sans); }
@@ -237,7 +237,6 @@ h3 { margin-bottom: 12px; font-size: 1.25rem; line-height: 1.45; }
 
 @media (max-width: 900px) {
   .research-overview { grid-template-columns: 220px minmax(0, 1fr); gap: 28px; }
-  .research-demos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .profile-hero { gap: 35px; grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr); padding-top: 60px; }
   .portrait-column { padding: 12px; }
   .feature-project { gap: 25px; padding: 24px; }
