@@ -183,7 +183,36 @@ h3 { margin-bottom: 12px; font-size: 1.25rem; line-height: 1.45; }
 .research-note { margin: 16px 0 0; color: var(--muted); font: 0.875rem/1.6 var(--sans); }
 .research-demos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 30px; }
 .research-demo { margin: 0; min-width: 0; }
-.research-demo video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; background: #19151e; border-radius: 4px; }
+.research-demo video, .research-demo .demo-frame { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; background: #19151e; border-radius: 4px; }
+.demo-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.gif-play { position: relative; padding: 0; border: 0; overflow: hidden; cursor: pointer; }
+.gif-play:focus-visible, .demo-image:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.play-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 58px;
+  height: 58px;
+  margin: -29px 0 0 -29px;
+  border-radius: 50%;
+  background: #19151ecc;
+  transition: background-color 0.15s;
+}
+.play-badge::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -10px 0 0 -6px;
+  border-style: solid;
+  border-width: 10px 0 10px 17px;
+  border-color: transparent transparent transparent #fff;
+}
+.gif-play:hover .play-badge, .gif-play:focus-visible .play-badge { background: var(--accent); }
+.research-demo .demo-image { position: relative; overflow: hidden; background: #f6f4f8; border: 1px solid var(--line); }
+.demo-caption-link { display: inline-block; margin-top: 4px; font-weight: 600; }
+.highlight-label { margin: 18px 0 6px; color: var(--accent); font: 600 0.875rem/1.5 var(--sans); }
+.subsection-heading + .research-demos { margin-top: 16px; }
 .research-demo figcaption { margin-top: 12px; color: var(--muted); font: 0.875rem/1.6 var(--sans); }
 .research-demo figcaption strong { display: block; margin-bottom: 4px; color: var(--ink); font-weight: 600; }
 .research-demo figcaption span { display: block; }
@@ -195,7 +224,7 @@ h3 { margin-bottom: 12px; font-size: 1.25rem; line-height: 1.45; }
 .research-figures summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
 .report-figures { display: grid; gap: 28px; margin-top: 22px; }
 .report-figures figure { margin: 0; }
-.report-figures img { width: 100%; height: auto; border: 1px solid var(--line); }
+.report-figures img { width: auto; max-width: 100%; height: auto; border: 1px solid var(--line); }
 .report-figures figcaption { margin-top: 10px; color: var(--muted); font: 0.875rem/1.6 var(--sans); }
 .subsection-heading { margin: 38px 0 0; color: var(--muted); font: 500 1rem/1.5 var(--sans); }
 .project-item {

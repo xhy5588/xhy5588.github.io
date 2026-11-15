@@ -26,12 +26,13 @@ const portfolioData = {
     ],
     "biography": [
       "I am pursuing an M.S. in Computer Science at Northwestern University, with expected graduation in December 2026. As a research assistant in the Xenobot / Living Machines Lab, I develop reinforcement-learning controllers for reconfigurable modular legs in Isaac Lab and build sim-to-real workflows through actuation calibration, sensor-noise modeling, and domain randomization.",
-      "My work spans robot design, simulation, and learning-based control. I am building a modular 6-DOF robot arm and have developed a teacher-student locomotion controller for unseen robot topologies in MuJoCo. My background also includes multi-robot telemetry and drone coordination, autonomous driving evaluation, and ROS-based mapping and exploration."
+      "My work spans robot design, simulation, and learning-based control. I am building ArthroBot, a modular robot platform whose arm now runs on hardware, and working toward robots that build robots: an assembly planner and a benchmark of AI agents that assemble the robot's own parts from camera images. I also developed a teacher-student locomotion controller for unseen robot topologies in MuJoCo. Earlier, I worked on multi-robot telemetry and drone coordination, autonomous driving evaluation, and ROS-based mapping and exploration."
     ],
     "interests": [
       "Reinforcement learning for robot manipulation and locomotion",
       "Modular robot design and control across changing morphologies",
       "Sim-to-real transfer, calibration, and domain randomization",
+      "Robotic assembly with vision-language agents and VLA policies",
       "Robot perception, SLAM, and sensor fusion"
     ]
   },
@@ -75,15 +76,41 @@ const portfolioData = {
     {
       "id": "arthrobot",
       "title": "ArthroBot: A Modular Robot Platform",
-      "status": "Ongoing research",
-      "meta": "Onshape, Isaac Lab, PPO, cuRobo | Jan 2026 - Present",
-      "text": "Developing a modular robot system in which a shared motor module forms a 6-DOF arm and a 20-module wheel-legged humanoid. The project connects Onshape CAD to physics models in Isaac Lab, reinforcement-learning policies, and motion planning for arm reaching, obstacle avoidance, and humanoid get-up and standing.",
-      "highlights": [
-        "Arm reaching: 2.2 mm median error, with 97.7% of 1,536 targets reached within 1 cm in simulation.",
-        "Humanoid get-up: 99.4% success on held-out lying poses, followed by a handover to a standing policy.",
-        "Arm motion planning with cuRobo, including comparisons against joint interpolation around a table and wall."
+      "status": "Ongoing research · updated November 2026",
+      "meta": "Onshape, Isaac Lab, MuJoCo, PPO, cuRobo, VR teleoperation, AI agents | Jan 2026 - Present",
+      "text": "A modular robot system built from one shared motor module: modules joined by carbon rods form arms and a 20-module wheel-legged humanoid. The work runs from Onshape CAD to physics models, reinforcement-learning policies in Isaac Lab, and now hardware: the bench arm runs on the real modules, and an AI agent has driven it from camera images. The current goal is a robot that builds robots, through an assembly planner and a benchmark of AI models assembling the robot's own parts.",
+      "highlightGroups": [
+        {
+          "label": "On hardware (November 2026)",
+          "items": [
+            "The bench arm runs on the real modules (two RS03 and one MG5010E, with a B601 gripper), teleoperated from the browser. Model-based gravity compensation cut the shoulder's holding error from about 4° to 1°.",
+            "An AI agent (Claude) drove the real arm from two camera images alone: it picked up a standing rod in 33 actions and pushed one end about 16 mm into a module's socket. Whether the rod fully seated was not verified."
+          ]
+        },
+        {
+          "label": "An arm that builds robots (simulation)",
+          "items": [
+            "An assembly planner, following Fabrica (CoRL 2025), takes a robot file and plans the build order, grasps, and arm motion for parts lying on a bare table, then plays the build in MuJoCo with the real modules' geometry.",
+            "A six-joint arm builds an 11-part four-legged robot (10 of 10 joints, every part within 0.5 mm). A study of 58 candidate arms found the smallest arm that can build it: the bench arm plus one wrist motor."
+          ]
+        },
+        {
+          "label": "Agent benchmark (simulation)",
+          "items": [
+            "AI models assemble modules one teleoperation step at a time, seeing the scene only through cameras. With a top and a wrist camera, 4 of 5 games assembled (Claude and GPT-6 Astra), against 1 of 4 with fixed cameras only. π0.5, zero-shot, never grasped the rod."
+          ]
+        },
+        {
+          "label": "Earlier results (simulation)",
+          "items": [
+            "Arm reaching: 2.2 mm median error, with 97.7% of 1,536 targets reached within 1 cm.",
+            "Humanoid get-up: 99.4% success on held-out lying poses, followed by a handover to a standing policy.",
+            "Collision-free arm planning with cuRobo: no contacts and 0.02 mm final error, where joint interpolation touched the wall or table in 86% of moves.",
+            "Tooling: PICO-headset teleoperation with five scored tasks, a module library converted from CAD, and an in-browser arm payload calculator."
+          ]
+        }
       ],
-      "note": "Policy results and planning demos are from simulation (v0); the teleoperation demo runs on the physical arm. Policy deployment on the physical robots is a next step.",
+      "note": "Results marked simulation come from Isaac Lab or MuJoCo; the bench arm, the agent run, and the teleoperation demo are on hardware. Next: a robot built by the real arm, and deploying the learned policies on the physical robots. The assembly planner, agent benchmark, and real-arm control are part of MetaMachine, the lab's robot framework, which is not yet public.",
       "image": {
         "src": "assets/arthrobot/humanoid.jpg",
         "alt": "ArthroBot wheel-legged humanoid with modular joints, carbon-fiber links, and two grippers",
@@ -91,38 +118,105 @@ const portfolioData = {
         "width": 1148,
         "height": 1370
       },
-      "videos": [
+      "demoGroups": [
         {
-          "src": "assets/arthrobot/arm-teleop.mp4",
-          "poster": "assets/arthrobot/arm-teleop.jpg",
-          "title": "VR teleoperation",
-          "caption": "Teleoperating the physical 6-DOF arm with a VR headset and handheld controllers.",
-          "width": 960,
+          "label": "Latest",
+          "items": [
+            {
+              "src": "assets/arthrobot/real-arm-agent.mp4",
+              "poster": "assets/arthrobot/real-arm-agent.jpg",
+              "title": "An AI agent drives the real arm",
+              "caption": "Seeing only two camera images, the agent picks up a standing rod and pushes it into a module's socket. Top camera, about 50× real time.",
+              "width": 960,
+              "height": 774
+            },
+            {
+              "src": "assets/arthrobot/arm-teleop.mp4",
+              "poster": "assets/arthrobot/arm-teleop.jpg",
+              "title": "VR teleoperation",
+              "caption": "Teleoperating the physical arm with a VR headset and handheld controllers.",
+              "width": 960,
+              "height": 540
+            },
+            {
+              "type": "gif",
+              "src": "assets/arthrobot/assembly-planner.gif",
+              "poster": "assets/arthrobot/assembly-planner.jpg",
+              "alt": "A four-joint arm picks up motor modules, sticks, and ball feet from the table and builds a four-legged robot with its legs pointing up",
+              "title": "An arm that builds a robot",
+              "caption": "The bench arm plus one wrist motor builds a four-legged robot from 11 parts, all 10 joints seated. Simulation, about 8× real time.",
+              "width": 480,
+              "height": 384
+            },
+            {
+              "src": "assets/arthrobot/agent-wrist-camera.mp4",
+              "poster": "assets/arthrobot/agent-wrist-camera.jpg",
+              "title": "Agent benchmark with a wrist camera",
+              "caption": "Claude, with a top and a wrist camera, joins two modules with a rod in 58 actions. Simulation, 4× real time.",
+              "width": 480,
+              "height": 270
+            }
+          ]
+        },
+        {
+          "label": "Earlier simulation results",
+          "items": [
+            {
+              "src": "assets/arthrobot/arm-reaching.mp4",
+              "poster": "assets/arthrobot/arm-reaching.jpg",
+              "title": "Arm reaching",
+              "caption": "The arm follows a new green target every two seconds.",
+              "width": 640,
+              "height": 360
+            },
+            {
+              "src": "assets/arthrobot/humanoid-getup.mp4",
+              "poster": "assets/arthrobot/humanoid-getup.jpg",
+              "title": "Get-up to standing",
+              "caption": "Five initial pose families: back, front, left, right, and random. Green labels mark the handover to standing.",
+              "width": 840,
+              "height": 420
+            },
+            {
+              "src": "assets/arthrobot/obstacle-planning.mp4",
+              "poster": "assets/arthrobot/obstacle-planning.jpg",
+              "title": "Planning around obstacles",
+              "caption": "Joint interpolation (left) compared with cuRobo (right) around a table and wall.",
+              "width": 960,
+              "height": 360
+            },
+            {
+              "type": "image",
+              "src": "assets/arthrobot/payload-calculator.png",
+              "href": "https://xhy5588.github.io/ArthroBot/",
+              "alt": "Screenshot of the arm payload calculator showing the arm in a chosen posture and its static payload limit",
+              "title": "Arm payload calculator",
+              "caption": "The static payload limit at any arm posture: 1.745 kg with all joints at zero, 0.487 kg stretched out.",
+              "link": {
+                "label": "Try it in the browser",
+                "href": "https://xhy5588.github.io/ArthroBot/"
+              },
+              "width": 1485,
+              "height": 900
+            }
+          ]
+        }
+      ],
+      "figuresLabel": "What the agents saw",
+      "figures": [
+        {
+          "src": "assets/arthrobot/real-arm-agent-view.jpg",
+          "alt": "Left: the end camera's photo with the table grid drawn in, the rod standing on the table and the motor module with its violet socket in front. Right: a close-up at the end, the gripper holding the rod upright with its lower end in the violet socket",
+          "caption": "Real arm. Left: the agent's view at the start, from the end camera with the calibrated table grid. Right: the end of the run, the rod held upright with its lower end in the violet socket.",
+          "width": 1928,
           "height": 540
         },
         {
-          "src": "assets/arthrobot/arm-reaching.mp4",
-          "poster": "assets/arthrobot/arm-reaching.jpg",
-          "title": "Arm reaching",
-          "caption": "The arm follows a new green target every two seconds.",
-          "width": 640,
-          "height": 360
-        },
-        {
-          "src": "assets/arthrobot/humanoid-getup.mp4",
-          "poster": "assets/arthrobot/humanoid-getup.jpg",
-          "title": "Get-up to standing",
-          "caption": "Five initial pose families: back, front, left, right, and random. Green labels mark the handover to standing.",
-          "width": 840,
-          "height": 420
-        },
-        {
-          "src": "assets/arthrobot/obstacle-planning.mp4",
-          "poster": "assets/arthrobot/obstacle-planning.jpg",
-          "title": "Planning around obstacles",
-          "caption": "Joint interpolation (left) compared with cuRobo (right) around a table and wall.",
+          "src": "assets/arthrobot/agent-wrist-view.jpg",
+          "alt": "Four wrist camera images from Claude's winning game: looking for the rod, carrying it to the first module, the rod seated, and the second module pushed onto the rod",
+          "caption": "Agent benchmark. Claude's wrist camera at four points of its winning game. The wrist camera shows the rod's end and the socket's mouth from a few centimetres away, where the fixed cameras show a few pixels.",
           "width": 960,
-          "height": 360
+          "height": 592
         }
       ],
       "links": [
@@ -131,8 +225,20 @@ const portfolioData = {
           "href": "https://github.com/xhy5588/ArthroBot"
         },
         {
-          "label": "Results & documentation",
-          "href": "https://github.com/xhy5588/ArthroBot#results-simulation-only"
+          "label": "Real arm",
+          "href": "https://github.com/xhy5588/ArthroBot/blob/main/docs/real_robot.md"
+        },
+        {
+          "label": "Assembly planner",
+          "href": "https://github.com/xhy5588/ArthroBot/blob/main/docs/assembly_planner.md"
+        },
+        {
+          "label": "Agent benchmark",
+          "href": "https://github.com/xhy5588/ArthroBot/blob/main/docs/agent_benchmark.md"
+        },
+        {
+          "label": "Payload calculator",
+          "href": "https://xhy5588.github.io/ArthroBot/"
         }
       ],
       "credit": {
@@ -201,7 +307,7 @@ const portfolioData = {
       "links": [
         {
           "label": "Open report",
-          "href": "main (2).pdf"
+          "href": "Systematic Analysis of Corner Scenarios in Autonomous Vehicle.pdf"
         },
         {
           "label": "Repository",
@@ -239,7 +345,7 @@ const portfolioData = {
   "skills": [
     {
       "label": "Robotics",
-      "text": "Robot manipulation, robot locomotion, reinforcement learning (DDPG, PPO, SAC), PID, SLAM, sensor fusion"
+      "text": "Robot manipulation, robot locomotion, reinforcement learning (DDPG, PPO, SAC), motion planning (cuRobo), assembly planning, VR teleoperation, PID, SLAM, sensor fusion"
     },
     {
       "label": "Simulation",
@@ -391,9 +497,13 @@ function renderResearchProject(project) {
   copy.appendChild(title);
   copy.appendChild(createElement("p", "project-meta", project.meta));
   copy.appendChild(createElement("p", "", project.text));
-  const highlights = createElement("ul", "bullet-list");
-  project.highlights.forEach((highlight) => highlights.appendChild(createElement("li", "", highlight)));
-  copy.appendChild(highlights);
+  const highlightGroups = project.highlightGroups || [{ items: project.highlights || [] }];
+  highlightGroups.forEach((group) => {
+    if (group.label) copy.appendChild(createElement("p", "highlight-label", group.label));
+    const highlights = createElement("ul", "bullet-list");
+    group.items.forEach((highlight) => highlights.appendChild(createElement("li", "", highlight)));
+    copy.appendChild(highlights);
+  });
   copy.appendChild(createElement("p", "research-note", project.note));
   const links = createElement("div", "project-actions");
   project.links.forEach((link) => {
@@ -407,37 +517,20 @@ function renderResearchProject(project) {
   overview.appendChild(copy);
   article.appendChild(overview);
 
-  const demos = createElement("div", "research-demos");
-  (project.videos || []).forEach((demo, index) => {
-    const figure = createElement("figure", "research-demo");
-    const video = createElement("video");
-    video.controls = true;
-    video.playsInline = true;
-    video.preload = "none";
-    video.poster = demo.poster;
-    video.width = demo.width;
-    video.height = demo.height;
-    video.setAttribute("aria-label", `${demo.title} demo`);
-    video.setAttribute("aria-describedby", `${project.id}-demo-${index}`);
-    const source = createElement("source");
-    source.src = demo.src;
-    source.type = "video/mp4";
-    video.appendChild(source);
-    const fallback = createElement("a", "", `Watch ${demo.title}`);
-    fallback.href = demo.src;
-    video.appendChild(fallback);
-    figure.appendChild(video);
-    const caption = createElement("figcaption");
-    caption.id = `${project.id}-demo-${index}`;
-    caption.appendChild(createElement("strong", "", demo.title));
-    caption.appendChild(createElement("span", "", demo.caption));
-    figure.appendChild(caption);
-    demos.appendChild(figure);
+  const demoGroups = project.demoGroups || (project.videos?.length ? [{ items: project.videos }] : []);
+  let demoIndex = 0;
+  demoGroups.forEach((group) => {
+    if (group.label) article.appendChild(createElement("h4", "subsection-heading", group.label));
+    const demos = createElement("div", "research-demos");
+    group.items.forEach((demo) => {
+      demos.appendChild(renderDemo(demo, `${project.id}-demo-${demoIndex}`));
+      demoIndex += 1;
+    });
+    article.appendChild(demos);
   });
-  if (project.videos?.length) article.appendChild(demos);
   if (project.figures?.length) {
     const details = createElement("details", "research-figures");
-    details.appendChild(createElement("summary", "", "Method & evaluation figures"));
+    details.appendChild(createElement("summary", "", project.figuresLabel || "Method & evaluation figures"));
     const figures = createElement("div", "report-figures");
     project.figures.forEach((item) => {
       const figure = createElement("figure");
@@ -469,6 +562,93 @@ function renderResearchProject(project) {
     article.appendChild(credit);
   }
   return article;
+}
+
+function renderDemo(demo, captionId) {
+  const figure = createElement("figure", "research-demo");
+  if (demo.type === "gif") {
+    figure.appendChild(renderGifDemo(demo, captionId));
+  } else if (demo.type === "image") {
+    figure.appendChild(renderImageDemo(demo));
+  } else {
+    figure.appendChild(renderVideoDemo(demo, captionId));
+  }
+  const caption = createElement("figcaption");
+  caption.id = captionId;
+  caption.appendChild(createElement("strong", "", demo.title));
+  caption.appendChild(createElement("span", "", demo.caption));
+  if (demo.link) {
+    const link = createElement("a", "demo-caption-link", demo.link.label);
+    link.href = demo.link.href;
+    link.target = "_blank";
+    link.rel = "noreferrer";
+    caption.appendChild(link);
+  }
+  figure.appendChild(caption);
+  return figure;
+}
+
+function renderVideoDemo(demo, captionId) {
+  const video = createElement("video");
+  video.controls = true;
+  video.playsInline = true;
+  video.preload = "none";
+  video.poster = demo.poster;
+  video.width = demo.width;
+  video.height = demo.height;
+  video.setAttribute("aria-label", `${demo.title} demo`);
+  video.setAttribute("aria-describedby", captionId);
+  const source = createElement("source");
+  source.src = demo.src;
+  source.type = "video/mp4";
+  video.appendChild(source);
+  const fallback = createElement("a", "", `Watch ${demo.title}`);
+  fallback.href = demo.src;
+  video.appendChild(fallback);
+  return video;
+}
+
+// GIFs have no controls, so show a still frame and load the animation on request.
+function renderGifDemo(demo, captionId) {
+  const button = createElement("button", "demo-frame gif-play");
+  button.type = "button";
+  button.setAttribute("aria-label", `Play ${demo.title} animation`);
+  button.setAttribute("aria-describedby", captionId);
+  const poster = createElement("img");
+  poster.src = demo.poster;
+  poster.alt = "";
+  poster.width = demo.width;
+  poster.height = demo.height;
+  poster.loading = "lazy";
+  button.appendChild(poster);
+  const badge = createElement("span", "play-badge");
+  badge.setAttribute("aria-hidden", "true");
+  button.appendChild(badge);
+  button.addEventListener("click", () => {
+    const animation = createElement("img", "demo-frame");
+    animation.src = demo.src;
+    animation.alt = demo.alt;
+    animation.width = demo.width;
+    animation.height = demo.height;
+    animation.setAttribute("aria-describedby", captionId);
+    button.replaceWith(animation);
+  });
+  return button;
+}
+
+function renderImageDemo(demo) {
+  const link = createElement("a", "demo-frame demo-image");
+  link.href = demo.href;
+  link.target = "_blank";
+  link.rel = "noreferrer";
+  const image = createElement("img");
+  image.src = demo.src;
+  image.alt = demo.alt;
+  image.width = demo.width;
+  image.height = demo.height;
+  image.loading = "lazy";
+  link.appendChild(image);
+  return link;
 }
 
 function renderSkills() {
