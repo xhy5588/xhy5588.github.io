@@ -20,13 +20,14 @@ const portfolioData = {
       }
     ],
     "titles": [
+      "Full-stack robotics engineer, from CAD and electronics to learning-based control",
       "M.S. Candidate in Computer Science, Northwestern University",
-      "Research Assistant in modular robotics and robot assembly",
-      "Focused on robot manipulation, locomotion, and sim-to-real transfer"
+      "Research Assistant in modular robotics, Xenobot / Living Machines Lab"
     ],
     "biography": [
-      "I am pursuing an M.S. in Computer Science at Northwestern University, with expected graduation in December 2026. As a research assistant in the Xenobot / Living Machines Lab, I am building a modular robot for loco-manipulation and a wheeled arm that assembles larger robots from modules, pairing a model-based planner with an LLM agent for multi-step assembly. I also train reinforcement-learning controllers in Isaac Lab for locomotion primitives across modular leg morphologies and build sim-to-real workflows through actuator calibration, sensor-noise modeling, and domain randomization.",
-      "My work spans robot design, simulation, and learning-based control. I am building ArthroBot, a modular robot platform whose arm now runs on hardware and is teleoperated from a PICO 4 Ultra headset, and working toward robots that build robots: an assembly planner and a benchmark of AI agents that assemble the robot's own parts from camera images. I also developed a teacher-student locomotion controller for unseen robot topologies in MuJoCo. Earlier, I worked on multi-robot telemetry and drone coordination, autonomous driving evaluation, and ROS-based mapping and exploration."
+      "I am a full-stack robotics engineer. I designed and built ArthroBot, a modular robot platform, from scratch on my own, including the shared motor module, a bench arm, and a 20-module wheel-legged humanoid. The work spans every layer of the robot: mechanical design in Onshape, 3D printing, and carbon-fiber links; wiring, power, motor-bus drivers, and embedded firmware; and software, from a simulation model built from the CAD to reinforcement-learning policies, motion and assembly planning, and VR teleoperation. The arm now runs on hardware, is teleoperated from a PICO 4 Ultra headset, and has been driven by an AI agent from camera images. The next goal is a robot that builds robots.",
+      "I am pursuing an M.S. in Computer Science at Northwestern University, graduating in December 2026. As a research assistant in the Xenobot / Living Machines Lab, I am building a modular robot for loco-manipulation and a wheeled arm that assembles larger robots from modules, pairing a model-based planner with an LLM agent for multi-step assembly. I also train locomotion controllers in Isaac Lab across modular leg morphologies and build sim-to-real workflows through actuator calibration, sensor-noise modeling, and domain randomization.",
+      "I also developed a teacher-student locomotion controller for unseen robot topologies in MuJoCo. Earlier, I worked on multi-robot telemetry and drone coordination, autonomous driving evaluation, and ROS-based mapping and exploration."
     ],
     "interests": [
       "Reinforcement learning for robot manipulation and locomotion",
