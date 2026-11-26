@@ -21,12 +21,12 @@ const portfolioData = {
     ],
     "titles": [
       "M.S. Candidate in Computer Science, Northwestern University",
-      "Research Assistant in reinforcement learning and modular robotics",
+      "Research Assistant in modular robotics and robot assembly",
       "Focused on robot manipulation, locomotion, and sim-to-real transfer"
     ],
     "biography": [
-      "I am pursuing an M.S. in Computer Science at Northwestern University, with expected graduation in December 2026. As a research assistant in the Xenobot / Living Machines Lab, I develop reinforcement-learning controllers for reconfigurable modular legs in Isaac Lab and build sim-to-real workflows through actuation calibration, sensor-noise modeling, and domain randomization.",
-      "My work spans robot design, simulation, and learning-based control. I am building ArthroBot, a modular robot platform whose arm now runs on hardware, and working toward robots that build robots: an assembly planner and a benchmark of AI agents that assemble the robot's own parts from camera images. I also developed a teacher-student locomotion controller for unseen robot topologies in MuJoCo. Earlier, I worked on multi-robot telemetry and drone coordination, autonomous driving evaluation, and ROS-based mapping and exploration."
+      "I am pursuing an M.S. in Computer Science at Northwestern University, with expected graduation in December 2026. As a research assistant in the Xenobot / Living Machines Lab, I am building a modular robot for loco-manipulation and a wheeled arm that assembles larger robots from modules, pairing a model-based planner with an LLM agent for multi-step assembly. I also train reinforcement-learning controllers in Isaac Lab for locomotion primitives across modular leg morphologies and build sim-to-real workflows through actuator calibration, sensor-noise modeling, and domain randomization.",
+      "My work spans robot design, simulation, and learning-based control. I am building ArthroBot, a modular robot platform whose arm now runs on hardware and is teleoperated from a PICO 4 Ultra headset, and working toward robots that build robots: an assembly planner and a benchmark of AI agents that assemble the robot's own parts from camera images. I also developed a teacher-student locomotion controller for unseen robot topologies in MuJoCo. Earlier, I worked on multi-robot telemetry and drone coordination, autonomous driving evaluation, and ROS-based mapping and exploration."
     ],
     "interests": [
       "Reinforcement learning for robot manipulation and locomotion",
@@ -77,14 +77,27 @@ const portfolioData = {
       "id": "arthrobot",
       "title": "ArthroBot: A Modular Robot Platform",
       "status": "Ongoing research · updated November 2026",
-      "meta": "Onshape, Isaac Lab, MuJoCo, PPO, cuRobo, VR teleoperation, AI agents | Jan 2026 - Present",
-      "text": "A modular robot system built from one shared motor module: modules joined by carbon rods form arms and a 20-module wheel-legged humanoid. The work runs from Onshape CAD to physics models, reinforcement-learning policies in Isaac Lab, and now hardware: the bench arm runs on the real modules, and an AI agent has driven it from camera images. The current goal is a robot that builds robots, through an assembly planner and a benchmark of AI models assembling the robot's own parts.",
+      "meta": "Onshape, Isaac Lab, MuJoCo, PPO, cuRobo, PICO 4 Ultra VR teleoperation, AI agents | Jan 2026 - Present",
+      "text": "A modular robot system built from one shared motor module: modules joined by carbon rods form arms and a 20-module wheel-legged humanoid. The work runs from Onshape CAD to physics models, reinforcement-learning policies in Isaac Lab, and now hardware: the bench arm runs on the real modules, is teleoperated from a VR headset, and has been driven by an AI agent from camera images. The current goal is a robot that builds robots, through an assembly planner and a benchmark of AI models assembling the robot's own parts.",
       "highlightGroups": [
         {
           "label": "On hardware (November 2026)",
           "items": [
             "The bench arm runs on the real modules (two RS03 and one MG5010E, with a B601 gripper), teleoperated from the browser. Model-based gravity compensation cut the shoulder's holding error from about 4° to 1°.",
             "An AI agent (Claude) drove the real arm from two camera images alone: it picked up a standing rod in 33 actions and pushed one end about 16 mm into a module's socket. Whether the rod fully seated was not verified."
+          ]
+        },
+        {
+          "label": "Arm design and build",
+          "items": [
+            "Designed and built the modular arm hardware in Onshape: interchangeable motor modules, 3D-printed brackets, carbon-fiber links, and a rack-and-pinion gripper. A 10-body simulation model rebuilt from 535 CAD meshes guided motor selection and validated the joint and gripper mechanics."
+          ]
+        },
+        {
+          "label": "VR teleoperation (MuJoCo and hardware)",
+          "items": [
+            "PICO 4 Ultra teleoperation through XRoboToolkit for the v1 and v2 arms in MuJoCo: IK tracks reachable grasp poses, the controller grip follows hand motion, and the trigger closes the jaws. Added headset, controller, arm, task, and IK selection to MetaMachine's dashboard, and calibrated gripper speeds and stops from hardware logs.",
+            "Timed trials of tennis-ball and cube pickup, tray and bottle placement, and rod-and-module assembly, in MuJoCo and on the physical arm. Grasps, drops, near misses, and joint travel were logged to compare arms, IK modes, and operators."
           ]
         },
         {
@@ -103,14 +116,14 @@ const portfolioData = {
         {
           "label": "Earlier results (simulation)",
           "items": [
-            "Arm reaching: 2.2 mm median error, with 97.7% of 1,536 targets reached within 1 cm.",
+            "Arm reaching with PPO trained in 1,024 parallel GPU environments: 2.2 mm median error, with 97.7% of 1,536 targets reached within 1 cm.",
             "Humanoid get-up: 99.4% success on held-out lying poses, followed by a handover to a standing policy.",
             "Collision-free arm planning with cuRobo: no contacts and 0.02 mm final error, where joint interpolation touched the wall or table in 86% of moves.",
-            "Tooling: PICO-headset teleoperation with five scored tasks, a module library converted from CAD, and an in-browser arm payload calculator."
+            "Tooling: a module library converted from CAD and an in-browser arm payload calculator."
           ]
         }
       ],
-      "note": "Results marked simulation come from Isaac Lab or MuJoCo; the bench arm, the agent run, and the teleoperation demo are on hardware. Next: a robot built by the real arm, and deploying the learned policies on the physical robots. The assembly planner, agent benchmark, and real-arm control are part of MetaMachine, the lab's robot framework, which is not yet public.",
+      "note": "Results marked simulation come from Isaac Lab or MuJoCo; the bench arm, the agent run, and the teleoperation demo are on hardware, and the teleoperation trials ran in both. Next: a robot built by the real arm, and deploying the learned policies on the physical robots. The assembly planner, agent benchmark, and real-arm control are part of MetaMachine, the lab's robot framework, which is not yet public.",
       "image": {
         "src": "assets/arthrobot/humanoid.jpg",
         "alt": "ArthroBot wheel-legged humanoid with modular joints, carbon-fiber links, and two grippers",
@@ -134,7 +147,7 @@ const portfolioData = {
               "src": "assets/arthrobot/arm-teleop.mp4",
               "poster": "assets/arthrobot/arm-teleop.jpg",
               "title": "VR teleoperation",
-              "caption": "Teleoperating the physical arm with a VR headset and handheld controllers.",
+              "caption": "Teleoperating the physical arm with a PICO 4 Ultra headset and handheld controllers.",
               "width": 960,
               "height": 540
             },
@@ -318,10 +331,10 @@ const portfolioData = {
   ],
   "experience": [
     {
-      "role": "Research Assistant (RL and Modular Robotics)",
+      "role": "Research Assistant (Modular Robotics)",
       "org": "Xenobot / Living Machines Lab",
       "date": "Nov 2025 - Present",
-      "summary": "Developing reinforcement-learning controllers in Isaac Lab for reconfigurable modular legs, training locomotion primitives across multiple morphologies. Building sim-to-real workflows for physical modular legs through actuation calibration, sensor-noise modeling, and domain randomization."
+      "summary": "Building a modular robot for loco-manipulation and a wheeled arm that assembles larger robots from modules. Explored the π0.5 vision-language-action model for assembly, and am pairing a model-based planner with an LLM agent for multi-step assembly. Training reinforcement-learning controllers in Isaac Lab for locomotion primitives across modular leg morphologies, and building sim-to-real workflows with actuator calibration, sensor-noise modeling, and domain randomization."
     },
     {
       "role": "Graduate Research Assistant",
